@@ -1,3 +1,3 @@
-# Community
+# Community: 
 
-Please go to the discussions tab.
+[discussions](https://github.com/openlabs-dev/community/discussions)
