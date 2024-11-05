@@ -1,2 +1,3 @@
-# -community
-💬 Open Labs community notes
+# Community
+
+Please go to the discussions tab.
