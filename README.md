@@ -5,6 +5,10 @@
   </a>
 </p>
 
-## Links
 
-[discussions](https://github.com/openlabs-dev/community/discussions)
+<p align="center">
+  <a href="https://openlabs.online/docs"><strong>Documentation</strong></a> ·
+  <a href="https://github.com/openlabs-dev/community/discussions"><strong>Discussions</strong></a> ·
+  <a href="https://openlabs.online"><strong>Website</strong></a> ·
+  <a href="https://x.com/openlabs"><strong>X</strong></a>
+</p>
