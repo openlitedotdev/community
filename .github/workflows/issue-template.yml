@@ -1,0 +1,74 @@
+name: Create Issue from Discussion
+
+on:
+  discussion:
+    types: [labeled]
+
+jobs:
+  create_issue:
+    if: github.event.label.name == 'create-issue'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get Discussion Details
+        id: discussion_details
+        run: |
+          ISSUE_TITLE="${{ github.event.discussion.title }}"
+          ISSUE_BODY="${{ github.event.discussion.body }}"
+          echo "issue_title=$ISSUE_TITLE" >> $GITHUB_OUTPUT
+          echo "issue_body=$ISSUE_BODY" >> $GITHUB_OUTPUT
+
+      - name: Create Issue
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issueTitle = '${{ steps.discussion_details.outputs.issue_title }}';
+            const issueBody = `
+            ## Discussion Summary
+
+            ${{ steps.discussion_details.outputs.issue_body }}
+
+            ---
+
+            ## Bug Report Template
+
+            **Describe the bug**
+            A clear and concise description of what the bug is.
+
+            **To Reproduce**
+            Steps to reproduce the behavior:
+            1. Go to '...'
+            2. Click on '....'
+            3. Scroll down to '....'
+            4. See error
+
+            **Expected behavior**
+            A clear and concise description of what you expected to happen.
+
+            **Screenshots**
+            If applicable, add screenshots to help explain your problem.
+
+            **Desktop (please complete the following information):**
+            - OS: [e.g. iOS]
+            - Browser [e.g. chrome, safari]
+            - Version [e.g. 22]
+
+            **Smartphone (please complete the following information):**
+            - Device: [e.g. iPhone6]
+            - OS: [e.g. iOS8.1]
+            - Browser [e.g. stock browser, safari]
+            - Version [e.g. 22]
+
+            **Additional context**
+            Add any other context about the problem here.
+            `;
+
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: issueTitle,
+              body: issueBody
+            });
+                        
