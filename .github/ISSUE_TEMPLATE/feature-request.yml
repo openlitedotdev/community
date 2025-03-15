@@ -1,0 +1,37 @@
+name: "🚀 Feature request"
+description: Suggest a feature that will improve Open Lite
+labels: ["pending triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to fill out this feature request!
+
+        Please carefully read the contribution docs before suggesting a new feature
+        👉 https://github.com/orgs/openlitedotdev/discussions/6
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Describe the feature
+      description: A clear and concise description of what you consider a useful addition to an Open Lite project, including potential use cases and alternatives you've considered. If you have a prototype or working module that implements it, please include a link.
+      placeholder: Feature description
+    validations:
+      required: true
+  - type: checkboxes
+    id: additional-info
+    attributes:
+      label: Additional information
+      description: Additional information that helps us decide how to proceed.
+      options:
+        - label: Would you be willing to help implement this feature?        
+  - type: checkboxes
+    id: required-info
+    attributes:
+      label: Final checks
+      description: Before submitting, please make sure you do the following
+      options:
+        - label: Read the [contribution guide](#).
+          required: true
+        - label: Check existing [discussions](https://github.com/openlitedotdev/community/discussions) and [issues](https://github.com/openlitedotdev/community/issues).
+          required: true
+                    
