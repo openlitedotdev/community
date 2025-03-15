@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://openlabs.online">
-    <img src="./assets/update-logo-openlite.png">
+    <img src="./assets/update-logo-openlite.png" width="250px">
     <h3 align="center">The Open Lite community</h3>
   </a>
 </p>
